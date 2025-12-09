@@ -1,0 +1,90 @@
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Menu, X, GraduationCap } from "lucide-react"
+
+export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navLinks = [
+    { href: "#opportunity", label: "The Opportunity" },
+    { href: "#how-it-works", label: "How It Works" },
+    { href: "#tracks", label: "Tracks" },
+    { href: "#eligibility", label: "Eligibility" },
+    { href: "#sponsors", label: "Partners" },
+    { href: "#faq", label: "FAQ" },
+  ]
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border animate-fade-in-down">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+            <GraduationCap className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-foreground">eLearning Academy</span>
+          </Link>
+
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-4">
+            <Button variant="ghost" size="sm" className="transition-all duration-300 hover:bg-primary/10">
+              Partner With Us
+            </Button>
+            <Button
+              size="sm"
+              className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+            >
+              Apply Now
+            </Button>
+          </div>
+
+          <button
+            className="lg:hidden p-2 transition-transform duration-300 hover:scale-110"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
+          </button>
+        </div>
+
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          <nav className="flex flex-col gap-4 py-4 border-t border-border">
+            {navLinks.map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-2"
+                onClick={() => setIsMenuOpen(false)}
+                style={{ transitionDelay: `${index * 0.05}s` }}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="flex flex-col gap-2 pt-4 border-t border-border">
+              <Button variant="ghost" size="sm" className="transition-all duration-300">
+                Partner With Us
+              </Button>
+              <Button size="sm" className="transition-all duration-300">
+                Apply Now
+              </Button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+  )
+}
