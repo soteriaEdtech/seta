@@ -45,8 +45,13 @@ export function SponsorsSection() {
                 size="lg"
                 className="gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
               >
+                <Link
+                className="flex items-center gap-2"
+                href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
+                >
                 <Download className="h-4 w-4" />
                 Download Sponsorship Deck
+                </Link>
               </Button>
               <Link 
                 href="mailto:seta@soterialearning.com" 

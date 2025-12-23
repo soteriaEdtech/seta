@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -12,14 +13,19 @@ export function HeroSection() {
         <div className="text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8 animate-fade-in-down">
             <Sparkles className="h-4 w-4 text-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">Applications Open for January 2026</span>
+            <span className="text-sm text-muted-foreground">
+              Applications Open for January 2026
+            </span>
           </div>
 
           <h1
             className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-foreground text-balance mb-6 animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Launch a Future-Proof Career in <span className="text-primary">eLearning & Instructional Design</span>
+            Launch a Future-Proof Career in{" "}
+            <span className="text-primary">
+              eLearning & Instructional Design
+            </span>
           </h1>
 
           <p
@@ -33,8 +39,8 @@ export function HeroSection() {
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up"
             style={{ animationDelay: "0.3s" }}
           >
-            Join the elite cohort of 100 professionals being trained by industry experts and connected directly to top
-            employers.
+            Join the elite cohort of 100 professionals being trained by industry
+            experts and connected directly to top employers.
           </p>
 
           <div
@@ -45,15 +51,22 @@ export function HeroSection() {
               size="lg"
               className="text-base px-8 gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 animate-pulse-glow"
             >
-               Sponsor SETA
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Link
+                className="flex items-center gap-2"
+                href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
+              >
+                Sponsor SETA
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="text-base px-8 bg-transparent transition-all duration-300 hover:scale-105 hover:bg-primary/10"
             >
-              Become a Hiring Partner
+              <Link href="mailto:seta@soterialearning.com">
+                Become a Hiring Partner
+              </Link>
             </Button>
           </div>
 
@@ -62,15 +75,21 @@ export function HeroSection() {
             style={{ animationDelay: "0.5s" }}
           >
             <span className="text-sm text-muted-foreground">
-              Applications Close: <span className="text-foreground font-medium">January 10, 2026</span>
+              Applications Close:{" "}
+              <span className="text-foreground font-medium">
+                January 10, 2026
+              </span>
             </span>
             <span className="text-border">|</span>
             <span className="text-sm text-muted-foreground">
-              Program Starts: <span className="text-foreground font-medium">January 19, 2026</span>
+              Program Starts:{" "}
+              <span className="text-foreground font-medium">
+                January 19, 2026
+              </span>
             </span>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
