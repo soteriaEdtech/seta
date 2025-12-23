@@ -1,8 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { GraduationCap, Linkedin, Twitter, Instagram } from "lucide-react"
+import { Linkedin, Twitter, Instagram } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Image from "next/image"
+import logo from '@/public/logo.svg'
+
+
 
 export function Footer() {
   const { ref: footerRef, isVisible } = useScrollAnimation()
@@ -14,7 +18,8 @@ export function Footer() {
           className={`flex flex-col md:flex-row items-center justify-between gap-6 animate-on-scroll ${isVisible ? "is-visible" : ""}`}
         >
           <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-            <GraduationCap className="h-6 w-6 text-primary" />
+            {/* <GraduationCap className="h-6 w-6 text-primary" /> */}
+             <Image src={logo} alt="SETA Program Logo" width={32} height={32} />
             <span className="font-bold text-foreground">SETA Program </span>
           </Link>
 
