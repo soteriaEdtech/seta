@@ -17,9 +17,9 @@ export function Footer() {
         <div
           className={`flex flex-col md:flex-row items-center justify-between gap-6 animate-on-scroll ${isVisible ? "is-visible" : ""}`}
         >
-          <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+          <Link href="/" className="transition-transform duration-300 hover:scale-105">
             {/* <GraduationCap className="h-6 w-6 text-primary" /> */}
-             <Image src={logo} alt="SETA Program Logo" width={32} height={32} />
+             <Image src={logo} alt="SETA Program Logo" width={120} height={52} />
             <span className="font-bold text-foreground">SETA Program </span>
           </Link>
 
