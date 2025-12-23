@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Linkedin, Twitter, Instagram } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import Image from "next/image"
-import logo from '@/public/logo.svg'
+import logo from '@/public/icon.svg'
 
 
 

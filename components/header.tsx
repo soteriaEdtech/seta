@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logo from '@/public/logo.svg'
+import logo from '@/public/icon.svg'
 import Image from "next/image";
 
 export function Header() {
