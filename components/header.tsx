@@ -98,10 +98,18 @@ export function Header() {
                 size="sm"
                 className="transition-all duration-300"
               >
-                Partner With Us
+                <Link
+                  className="flex items-center gap-2"
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
+                >
+                  Partner With Us
+                </Link>
               </Button>
               <Button size="sm" className="transition-all duration-300">
-                <Link href="https://luma.com/jbumncjn">Apply Now</Link>
+                <Link target="_blank" href="https://luma.com/jbumncjn">
+                  Apply Now
+                </Link>
               </Button>
             </div>
           </nav>

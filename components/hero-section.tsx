@@ -53,6 +53,7 @@ export function HeroSection() {
             >
               <Link
                 className="flex items-center gap-2"
+                target="_blank"
                 href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
               >
                 Sponsor SETA
@@ -64,7 +65,9 @@ export function HeroSection() {
               variant="outline"
               className="text-base px-8 bg-transparent transition-all duration-300 hover:scale-105 hover:bg-primary/10"
             >
-              <Link href="mailto:seta@soterialearning.com">
+              <Link 
+              target="_blank"
+              href="mailto:seta@soterialearning.com">
                 Become a Hiring Partner
               </Link>
             </Button>
