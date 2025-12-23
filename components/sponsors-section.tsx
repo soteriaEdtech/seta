@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Users, Wrench, Award, Heart, Download, Mail } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Link from "next/link"
 
 export function SponsorsSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation()
@@ -47,6 +48,9 @@ export function SponsorsSection() {
                 <Download className="h-4 w-4" />
                 Download Sponsorship Deck
               </Button>
+              <Link 
+                href="mailto:seta@soterialearning.com" 
+              >
               <Button
                 size="lg"
                 variant="outline"
@@ -55,6 +59,7 @@ export function SponsorsSection() {
                 <Mail className="h-4 w-4" />
                 Contact Program Director
               </Button>
+              </Link>
             </div>
           </div>
 

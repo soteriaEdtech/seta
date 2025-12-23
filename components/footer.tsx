@@ -15,7 +15,7 @@ export function Footer() {
         >
           <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
             <GraduationCap className="h-6 w-6 text-primary" />
-            <span className="font-bold text-foreground">eLearning Academy</span>
+            <span className="font-bold text-foreground">SETA Program </span>
           </Link>
 
           <p className="text-center text-muted-foreground text-balance max-w-md">
@@ -51,7 +51,7 @@ export function Footer() {
           className={`mt-8 pt-8 border-t border-border text-center animate-on-scroll ${isVisible ? "is-visible" : ""}`}
           style={{ transitionDelay: "0.1s" }}
         >
-          <p className="text-sm text-muted-foreground">© 2025/2026 eLearning Academy. All Rights Reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025/2026 SETA Program. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

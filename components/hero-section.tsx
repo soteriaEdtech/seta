@@ -45,7 +45,7 @@ export function HeroSection() {
               size="lg"
               className="text-base px-8 gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 animate-pulse-glow"
             >
-              Apply for Sponsorship
+               Sponsor SETA
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button

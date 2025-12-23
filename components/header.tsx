@@ -23,7 +23,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">eLearning Academy</span>
+            <span className="text-xl font-bold text-foreground">SETA Program</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -39,15 +39,23 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <Link
+             href="mailto:seta@soterialearning.com" 
+            >  
             <Button variant="ghost" size="sm" className="transition-all duration-300 hover:bg-primary/10">
               Partner With Us
             </Button>
+            </Link>
+            <Link
+            href="https://luma.com/jbumncjn">
+
             <Button
               size="sm"
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-            >
+              >
               Apply Now
             </Button>
+              </Link>
           </div>
 
           <button

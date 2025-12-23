@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "eLearning Academy | Launch Your Career in Instructional Design",
+  title: "SETA Program | Launch Your Career in Instructional Design",
   description:
     "12-week sponsored bootcamp with 5 specialized tracks. 100% funded training to become an eLearning professional.",
   generator: "v0.app",
