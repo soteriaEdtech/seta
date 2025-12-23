@@ -28,7 +28,7 @@ export function Header() {
             className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
           >
             {/* <GraduationCap className="h-8 w-8 text-primary" /> */}
-            <Image src={logo} alt="SETA Program Logo" width={32} height={32} />
+            <Image src={logo} alt="SETA Program Logo" width={16} height={16} />
             <span className="text-xl font-bold text-foreground">
               SETA Program
             </span>
