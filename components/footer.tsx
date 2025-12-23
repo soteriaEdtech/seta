@@ -19,7 +19,7 @@ export function Footer() {
         >
           <Link href="/" className="transition-transform duration-300 hover:scale-105">
             {/* <GraduationCap className="h-6 w-6 text-primary" /> */}
-             <Image src={logo} alt="SETA Program Logo" width={16} height={16} />
+             <Image src={logo} alt="SETA Program Logo" width={32} height={16} />
             <span className="font-bold text-foreground">SETA Program </span>
           </Link>
 
