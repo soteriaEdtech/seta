@@ -97,6 +97,7 @@ export function EligibilitySection() {
             className="gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
           >
             <Link 
+            className="flex items-center gap-2"
             href="https://luma.com/jbumncjn"
             >
             Start Your Application
