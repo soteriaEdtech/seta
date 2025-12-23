@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X, GraduationCap } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Menu, X, GraduationCap } from "lucide-react";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "#opportunity", label: "The Opportunity" },
@@ -15,15 +15,20 @@ export function Header() {
     { href: "#eligibility", label: "Eligibility" },
     { href: "#sponsors", label: "Partners" },
     { href: "#faq", label: "FAQ" },
-  ]
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border animate-fade-in-down">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+          <Link
+            href="/"
+            className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
+          >
             <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">SETA Program</span>
+            <span className="text-xl font-bold text-foreground">
+              SETA Program
+            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -39,23 +44,22 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-             href="mailto:seta@soterialearning.com" 
-            >  
-            <Button variant="ghost" size="sm" className="transition-all duration-300 hover:bg-primary/10">
-              Partner With Us
+            <Button
+              variant="ghost"
+              size="sm"
+              className="transition-all duration-300 hover:bg-primary/10"
+            >
+              <Link href="mailto:seta@soterialearning.com">
+                Partner With Us
+              </Link>
             </Button>
-            </Link>
-            <Link
-            href="https://luma.com/jbumncjn">
 
             <Button
               size="sm"
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-              >
-              Apply Now
+            >
+              <Link href="https://luma.com/jbumncjn">Apply Now</Link>
             </Button>
-              </Link>
           </div>
 
           <button
@@ -63,12 +67,18 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
           </button>
         </div>
 
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
           <nav className="flex flex-col gap-4 py-4 border-t border-border">
             {navLinks.map((link, index) => (
@@ -83,16 +93,20 @@ export function Header() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-border">
-              <Button variant="ghost" size="sm" className="transition-all duration-300">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="transition-all duration-300"
+              >
                 Partner With Us
               </Button>
               <Button size="sm" className="transition-all duration-300">
-                Apply Now
+                <Link href="https://luma.com/jbumncjn">Apply Now</Link>
               </Button>
             </div>
           </nav>
         </div>
       </div>
     </header>
-  )
+  );
 }

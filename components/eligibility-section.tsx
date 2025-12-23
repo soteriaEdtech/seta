@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Laptop, Clock, Globe, Zap, FileText, Brain, Video, ArrowRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Link from 'next/link'
 
 export function EligibilitySection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation()
@@ -74,7 +75,7 @@ export function EligibilitySection() {
                   className={`flex gap-4 p-4 rounded-lg bg-background border border-border transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:translate-x-2 animate-on-scroll ${isVisible ? "is-visible" : ""}`}
                   style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary/20">
+                  <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary/20">
                     <span className="text-primary font-bold">{step.step}</span>
                   </div>
                   <div>
@@ -95,8 +96,12 @@ export function EligibilitySection() {
             size="lg"
             className="gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
           >
+            <Link 
+            href="https://luma.com/jbumncjn"
+            >
             Start Your Application
             <ArrowRight className="h-4 w-4 transition-transform hover:translate-x-1" />
+            </Link>
           </Button>
         </div>
       </div>
