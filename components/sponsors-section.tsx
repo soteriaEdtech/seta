@@ -73,9 +73,9 @@ export function SponsorsSection() {
                 variant="outline"
                 className="gap-2 bg-transparent transition-all duration-300 hover:scale-105 hover:bg-primary/10"
               >
-                <Link href="mailto:seta@soterialearning.com">
+                <Link href="mailto:seta@soterialearning.com" className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  Contact Program Director
+                  Contact Program Manager
                 </Link>
               </Button>
             </div>
