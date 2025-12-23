@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X, GraduationCap } from "lucide-react";
+import logo from '@/public/logo.svg'
+import Image from "next/image";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +27,8 @@ export function Header() {
             href="/"
             className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
           >
-            <GraduationCap className="h-8 w-8 text-primary" />
+            {/* <GraduationCap className="h-8 w-8 text-primary" /> */}
+            <Image src={logo} alt="SETA Program Logo" width={32} height={32} />
             <span className="text-xl font-bold text-foreground">
               SETA Program
             </span>
