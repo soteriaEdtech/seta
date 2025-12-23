@@ -61,7 +61,9 @@ export function Header() {
               size="sm"
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
             >
-              <Link href="https://luma.com/jbumncjn">Apply Now</Link>
+              <Link 
+              target="_blank"
+              href="https://luma.com/jbumncjn">Apply Now</Link>
             </Button>
           </div>
 
