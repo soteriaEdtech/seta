@@ -54,7 +54,7 @@ export function HeroSection() {
               <Link
                 className="flex items-center gap-2"
                 target="_blank"
-                href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
+               href="mailto:seta@soterialearning.com"
               >
                 Sponsor SETA
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

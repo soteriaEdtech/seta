@@ -8,6 +8,7 @@ import { SponsorsSection } from "@/components/sponsors-section"
 import { TimelineSection } from "@/components/timeline-section"
 import { FAQSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
+import BecomeAMentor from "@/components/become-a-mentor"
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         <HowItWorksSection />
         <TracksSection />
         <EligibilitySection />
+        <BecomeAMentor />
         <SponsorsSection />
         <TimelineSection />
         <FAQSection />
