@@ -67,7 +67,7 @@ export function HeroSection() {
             >
               <Link 
               target="_blank"
-              href="mailto:seta@soterialearning.com">
+              href="https://luma.com/oec6wn67">
                 Become a Hiring Partner
               </Link>
             </Button>

@@ -106,7 +106,7 @@ export function Header() {
                 <Link
                   className="flex items-center gap-2"
                   target="_blank"
-                  href="https://drive.google.com/file/d/1RQFeNPJcPzDgRI7ERneZf7AE37zPwXH8/view"
+                  href="https://luma.com/oec6wn67"
                 >
                   Partner With Us
                 </Link>
