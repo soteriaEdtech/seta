@@ -10,7 +10,7 @@ export function EligibilitySection() {
 
   const requirements = [
     { icon: Laptop, label: "Tech Ready", description: "Functioning laptop (Min i5/8GB RAM) and reliable internet" },
-    { icon: Clock, label: "Time Commitment", description: "Available for 10-15 hours per week (Jan 19 – April)" },
+    { icon: Clock, label: "Time Commitment", description: "Available for 10-15 hours per week (Aug 24 – Oct)" },
     { icon: Globe, label: "Language", description: "Proficient in English (Written and Spoken)" },
     { icon: Zap, label: "Attitude", description: "A self-starter willing to collaborate and accept feedback" },
   ]
@@ -37,7 +37,7 @@ export function EligibilitySection() {
         <div className={`text-center mb-16 animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">Who We Are Looking For</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We have only 100 sponsored seats. Selection is merit-based. We are not looking for experts; we are looking
+            We have only 30 Elite seats. Selection is merit-based. We are not looking for experts; we are looking
             for potential.
           </p>
         </div>
@@ -98,7 +98,7 @@ export function EligibilitySection() {
           >
             <Link 
             className="flex items-center gap-2"
-            href="https://luma.com/jbumncjn"
+            href="https://paystack.shop/pay/seta_ii"
             target="_blank"
             >
             Start Your Application

@@ -7,8 +7,8 @@ export function OpportunitySection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation()
 
   const benefits = [
-    { label: "Cost to You", value: "$0", description: "Fully funded by our Hiring Partners" },
-    { label: "Your Commitment", value: "12 Weeks", description: "Grit, creativity, and intense learning" },
+    { label: "Commitment Fee", value: "₦45,000", description: "Secure your Elite seat via Paystack" },
+    { label: "Your Commitment", value: "8 Weeks", description: "Grit, creativity, and intense learning" },
     { label: "The Outcome", value: "Portfolio + Jobs", description: "Priority access to recruitment interviews" },
   ]
 
@@ -29,7 +29,7 @@ export function OpportunitySection() {
             <p className="text-lg text-muted-foreground mb-8">
               We are bridging the gap between talent and opportunity. Supported by a committed Primary Sponsor and a
               coalition of industry partners, this initiative is designed to take you from "aspiring" to
-              "industry-ready" in just 12 weeks.
+              "industry-ready" in just 8 weeks.
             </p>
             <div className="flex flex-col gap-3">
               {checkItems.map((item, index) => (

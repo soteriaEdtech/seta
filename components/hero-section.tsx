@@ -14,7 +14,7 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8 animate-fade-in-down">
             <Sparkles className="h-4 w-4 text-primary animate-pulse" />
             <span className="text-sm text-muted-foreground">
-              Applications Open for January 2026
+              Applications Open — SETA Cohort 2
             </span>
           </div>
 
@@ -32,14 +32,14 @@ export function HeroSection() {
             className="text-xl lg:text-2xl text-muted-foreground mb-4 animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
           >
-            12 Weeks. 5 Specialized Tracks. 100% Sponsored.
+            8 Weeks · 3 Specialized Tracks · 30 Elite Seats
           </p>
 
           <p
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up"
             style={{ animationDelay: "0.3s" }}
           >
-            Join the elite cohort of 100 professionals being trained by industry
+            Join the elite cohort of 30 professionals being trained by industry
             experts and connected directly to top employers.
           </p>
 
@@ -74,21 +74,26 @@ export function HeroSection() {
           </div>
 
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border animate-fade-in-up"
+            className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-lg bg-card border border-border animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
           >
             <span className="text-sm text-muted-foreground">
               Applications Close:{" "}
               <span className="text-foreground font-medium">
-                January 10, 2026
+                August 19, 2026
               </span>
             </span>
             <span className="text-border">|</span>
             <span className="text-sm text-muted-foreground">
               Program Starts:{" "}
               <span className="text-foreground font-medium">
-                January 19, 2026
+                August 24, 2026
               </span>
+            </span>
+            <span className="text-border">|</span>
+            <span className="text-sm text-muted-foreground">
+              Commitment Fee:{" "}
+              <span className="text-foreground font-medium">₦45,000</span>
             </span>
           </div>
         </div>

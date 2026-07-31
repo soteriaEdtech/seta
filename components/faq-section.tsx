@@ -8,8 +8,9 @@ export function FAQSection() {
 
   const faqs = [
     {
-      question: "Is this program really free?",
-      answer: "Yes. Thanks to our sponsors, tuition is 100% covered for the selected 100 participants.",
+      question: "How much does the program cost?",
+      answer:
+        "SETA Cohort 2 requires a ₦45,000 commitment fee, paid via Paystack to secure one of the 30 Elite seats. The fee confirms your place; the rest of the program cost is covered by our sponsors.",
     },
     {
       question: "Can I work full-time while doing this?",

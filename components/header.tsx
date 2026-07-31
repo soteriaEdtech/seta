@@ -63,7 +63,7 @@ export function Header() {
             >
               <Link 
               target="_blank"
-              href="https://luma.com/jbumncjn">Apply Now</Link>
+              href="https://paystack.shop/pay/seta_ii">Apply Now</Link>
             </Button>
           </div>
 
@@ -112,7 +112,7 @@ export function Header() {
                 </Link>
               </Button>
               <Button size="sm" className="transition-all duration-300">
-                <Link target="_blank" href="https://luma.com/jbumncjn">
+                <Link target="_blank" href="https://paystack.shop/pay/seta_ii">
                   Apply Now
                 </Link>
               </Button>

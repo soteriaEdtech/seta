@@ -6,12 +6,12 @@ export function TimelineSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation()
 
   const events = [
-    { date: "Dec 1 - Jan 10", title: "Recruitment & Screening", status: "upcoming" },
-    { date: "Jan 15", title: "Final Cohort Announced (100 Seats)", status: "upcoming" },
-    { date: "Jan 19", title: "Program Kick-off", status: "upcoming" },
-    { date: "Feb - March", title: "Specialized Training Tracks", status: "upcoming" },
-    { date: "Early April", title: "Capstone Project Submission", status: "upcoming" },
-    { date: "Late April", title: "Talent Showcase & Hiring Draft", status: "upcoming" },
+    { date: "Now – Aug 19", title: "Recruitment & Screening", status: "upcoming" },
+    { date: "Aug 21", title: "Final Cohort Announced (30 Elite Seats)", status: "upcoming" },
+    { date: "Aug 24", title: "Program Kick-off", status: "upcoming" },
+    { date: "September", title: "Specialized Training Tracks", status: "upcoming" },
+    { date: "Mid October", title: "Capstone Project Submission", status: "upcoming" },
+    { date: "Late October", title: "Talent Showcase & Hiring Draft", status: "upcoming" },
   ]
 
   return (

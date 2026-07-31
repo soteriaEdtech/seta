@@ -56,7 +56,7 @@ export function Footer() {
           className={`mt-8 pt-8 border-t border-border text-center animate-on-scroll ${isVisible ? "is-visible" : ""}`}
           style={{ transitionDelay: "0.1s" }}
         >
-          <p className="text-sm text-muted-foreground">© 2025/2026 SETA Program. All Rights Reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 SETA Program. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

@@ -13,7 +13,7 @@ export function SponsorsSection() {
       icon: Users,
       title: "First-Mover Advantage",
       description:
-        "Get exclusive access to recruit the top 100 talents before they hit the open market",
+        "Get exclusive access to recruit the top 30 talents before they hit the open market",
     },
     {
       icon: Wrench,
@@ -51,7 +51,7 @@ export function SponsorsSection() {
             <p className="text-lg text-muted-foreground mb-8">
               Are you struggling to find "job-ready" L&D talent? Partner with us
               to fund the next generation of eLearning professionals. By the
-              time they graduate, our participants have received 12 weeks of
+              time they graduate, our participants have received 8 weeks of
               rigorous training, mentorship, and portfolio development.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

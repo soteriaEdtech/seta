@@ -19,7 +19,7 @@ export function HowItWorksSection() {
       icon: Target,
       phase: "Phase 2",
       title: "Specialization",
-      weeks: "Weeks 3-10",
+      weeks: "Weeks 3-6",
       description:
         "Select your dedicated career track and dive deep with expert mentors. Hands-on projects and real-world scenarios.",
     },
@@ -27,7 +27,7 @@ export function HowItWorksSection() {
       icon: Trophy,
       phase: "Phase 3",
       title: "Capstone & Showcase",
-      weeks: "Weeks 11-12",
+      weeks: "Weeks 7-8",
       description: "Build a real-world project. Present it at our 'Talent Draft Day' to sponsors and recruiters.",
     },
   ]
