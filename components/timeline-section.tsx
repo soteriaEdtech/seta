@@ -8,7 +8,7 @@ export function TimelineSection() {
   const events = [
     { date: "Now – Aug 19", title: "Recruitment & Screening", status: "upcoming" },
     { date: "Aug 21", title: "Final Cohort Announced (30 Elite Seats)", status: "upcoming" },
-    { date: "Aug 24", title: "Program Kick-off", status: "upcoming" },
+    { date: "Aug 31", title: "Program Kick-off", status: "upcoming" },
     { date: "September", title: "Specialized Training Tracks", status: "upcoming" },
     { date: "Mid October", title: "Capstone Project Submission", status: "upcoming" },
     { date: "Late October", title: "Talent Showcase & Hiring Draft", status: "upcoming" },

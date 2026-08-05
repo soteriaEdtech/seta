@@ -87,7 +87,7 @@ export function HeroSection() {
             <span className="text-sm text-muted-foreground">
               Program Starts:{" "}
               <span className="text-foreground font-medium">
-                August 24, 2026
+                August 31, 2026
               </span>
             </span>
             <span className="text-border">|</span>
