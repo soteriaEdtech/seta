@@ -1,0 +1,92 @@
+# CLAUDE.md
+
+Guidance for working in this repository.
+
+## Project
+
+Marketing site **and** applicant-management system for the **SETA Program** — an 8-week
+instructional-design / eLearning bootcamp (Cohort 2, "SETA II"). 3 tracks, 30 seats,
+₦45,000 commitment fee. The public site sells the program; the in-app flow lets applicants
+apply and pay, and lets admins review payments and grant/deny admission.
+
+## Stack
+
+- **Next.js 16** (App Router, RSC) · **React 19** · **TypeScript**
+- **Tailwind CSS v4** + **shadcn/ui** (new-york style, components in `components/ui/`)
+- **Neon Postgres** (serverless) via `@neondatabase/serverless` — provisioned through the
+  Vercel Marketplace; connection string in `DATABASE_URL`
+- **Paystack** for payments (NGN) — inline init + webhook verification
+- **Nodemailer** for transactional email (SMTP)
+- Deploy target: **Vercel**
+
+Path alias: `@/*` → repo root. `next.config.mjs` sets `typescript.ignoreBuildErrors` and
+`images.unoptimized` — keep this in mind, type errors won't fail the build.
+
+## Commands
+
+```bash
+npm run dev      # local dev
+npm run build    # production build
+npm run lint     # eslint
+npm run db:init  # create/upgrade DB tables (needs DATABASE_URL)
+```
+
+## Layout
+
+```
+app/
+  page.tsx                 # public landing (composed of components/*-section.tsx)
+  layout.tsx               # root layout, fonts, metadata
+  apply/
+    page.tsx               # application form (apply-then-pay)
+    success/page.tsx       # post-payment confirmation
+  admin/
+    login/page.tsx         # admin password login
+    page.tsx               # admin dashboard (list + manage)
+  api/
+    applications/route.ts       # POST: create application + init Paystack
+    paystack/
+      callback/route.ts         # GET: Paystack redirect -> verify -> success
+      webhook/route.ts          # POST: Paystack webhook (source of truth)
+    admin/
+      login/route.ts            # POST/DELETE: set/clear admin session cookie
+      applications/[id]/route.ts# PATCH: update admission status
+components/          # landing sections + shared UI (ui/ = shadcn)
+lib/
+  db.ts             # neon() sql client
+  applications.ts   # typed data-access (queries/mutations)
+  paystack.ts       # Paystack init + verify helpers
+  email.ts          # nodemailer transporter + templated senders
+  auth.ts           # admin session token helpers
+  config.ts         # program constants (fee, tracks, currency)
+middleware.ts       # protects /admin/* (except /admin/login)
+scripts/init-db.mjs # idempotent schema migration
+```
+
+## Data model
+
+- **applications** — one row per applicant. `payment_status` (`pending|paid|failed`) and
+  `admission_status` (`pending|admitted|waitlisted|rejected`) are independent. `reference`
+  is the unique Paystack transaction reference.
+- **payments** — audit log of Paystack transactions (webhook + verify writes here).
+
+`lib/applications.ts` is the only place that should run SQL for these tables — keep queries
+there, not in route handlers or components.
+
+## Conventions
+
+- **Money is stored in kobo** (integer). ₦45,000 = `4_500_000`. See `lib/config.ts`.
+- Email sends are **best-effort**: wrap in try/catch, never let a mail failure break the
+  application or payment flow.
+- Payment truth comes from **Paystack verify/webhook**, never from the client. The client
+  only redirects to the Paystack `authorization_url`.
+- Admin auth is a **single shared password** (`ADMIN_PASSWORD`) → stateless signed cookie
+  (`lib/auth.ts`). Not multi-user; upgrade to a real auth provider if that changes.
+- New landing content = a `components/*-section.tsx` added to `app/page.tsx`.
+
+## Environment
+
+Copy `.env.example` → `.env.local` and fill in. Required: `DATABASE_URL`,
+`PAYSTACK_SECRET_KEY`, `PAYSTACK_PUBLIC_KEY`, SMTP creds, `ADMIN_PASSWORD`,
+`ADMIN_SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`, `ADMIN_EMAIL`. `DATABASE_URL` is populated by
+the Neon integration (`vercel env pull`).

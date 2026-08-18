@@ -54,10 +54,9 @@ export function EligibilitySection() {
             size="lg"
             className="gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
           >
-            <Link 
+            <Link
             className="flex items-center gap-2"
-            href="https://paystack.shop/pay/seta_ii"
-            target="_blank"
+            href="/apply"
             >
             Start Your Application
             <ArrowRight className="h-4 w-4 transition-transform hover:translate-x-1" />

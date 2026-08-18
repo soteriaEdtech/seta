@@ -61,9 +61,7 @@ export function Header() {
               size="sm"
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
             >
-              <Link 
-              target="_blank"
-              href="https://paystack.shop/pay/seta_ii">Apply Now</Link>
+              <Link href="/apply">Apply Now</Link>
             </Button>
           </div>
 
@@ -112,7 +110,7 @@ export function Header() {
                 </Link>
               </Button>
               <Button size="sm" className="transition-all duration-300">
-                <Link target="_blank" href="https://paystack.shop/pay/seta_ii">
+                <Link href="/apply" onClick={() => setIsMenuOpen(false)}>
                   Apply Now
                 </Link>
               </Button>
