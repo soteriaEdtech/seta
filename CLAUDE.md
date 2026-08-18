@@ -13,8 +13,11 @@ apply and pay, and lets admins review payments and grant/deny admission.
 
 - **Next.js 16** (App Router, RSC) · **React 19** · **TypeScript**
 - **Tailwind CSS v4** + **shadcn/ui** (new-york style, components in `components/ui/`)
-- **Neon Postgres** (serverless) via `@neondatabase/serverless` — provisioned through the
-  Vercel Marketplace; connection string in `DATABASE_URL`
+- **Postgres** via **Prisma ORM 7** (`prisma-client` generator + `@prisma/adapter-pg`).
+  Default DB is **Prisma Postgres** (`db.prisma.io`); connection string in `DATABASE_URL`.
+  Any Postgres works — the adapter just needs the URL. Prisma CLI reads `.env`; Next reads
+  `.env.local` (keep `DATABASE_URL` in sync between them). Generated client lives in
+  `lib/generated/prisma/` (git-ignored, rebuilt by `postinstall`/`prisma generate`).
 - **Paystack** for payments (NGN) — inline init + webhook verification
 - **Nodemailer** for transactional email (SMTP)
 - Deploy target: **Vercel**
@@ -25,10 +28,13 @@ Path alias: `@/*` → repo root. `next.config.mjs` sets `typescript.ignoreBuildE
 ## Commands
 
 ```bash
-npm run dev      # local dev
-npm run build    # production build
-npm run lint     # eslint
-npm run db:init  # create/upgrade DB tables (needs DATABASE_URL)
+npm run dev          # local dev
+npm run build        # production build
+npm run lint         # eslint
+npm run db:migrate   # create/apply a migration in dev (prisma migrate dev)
+npm run db:deploy    # apply migrations in prod/CI (prisma migrate deploy)
+npm run db:generate  # regenerate the Prisma client
+npm run db:studio    # open Prisma Studio
 ```
 
 ## Layout
@@ -53,14 +59,18 @@ app/
       applications/[id]/route.ts# PATCH: update admission status
 components/          # landing sections + shared UI (ui/ = shadcn)
 lib/
-  db.ts             # neon() sql client
-  applications.ts   # typed data-access (queries/mutations)
+  prisma.ts         # PrismaClient singleton (pg driver adapter)
+  generated/prisma/ # generated Prisma client (git-ignored)
+  applications.ts   # typed data-access (Prisma queries/mutations)
   paystack.ts       # Paystack init + verify helpers
   email.ts          # nodemailer transporter + templated senders
   auth.ts           # admin session token helpers
   config.ts         # program constants (fee, tracks, currency)
-middleware.ts       # protects /admin/* (except /admin/login)
-scripts/init-db.mjs # idempotent schema migration
+prisma/
+  schema.prisma     # data model (Application, Payment)
+  migrations/       # migration history
+prisma.config.ts    # Prisma 7 config (schema path + datasource url from env)
+proxy.ts            # protects /admin/* (except /admin/login)
 ```
 
 ## Data model
@@ -70,8 +80,9 @@ scripts/init-db.mjs # idempotent schema migration
   is the unique Paystack transaction reference.
 - **payments** — audit log of Paystack transactions (webhook + verify writes here).
 
-`lib/applications.ts` is the only place that should run SQL for these tables — keep queries
-there, not in route handlers or components.
+`lib/applications.ts` is the only place that should query these tables (via Prisma) — keep
+data access there, not in route handlers or components. To change the schema, edit
+`prisma/schema.prisma` and run `npm run db:migrate`.
 
 ## Conventions
 
@@ -88,5 +99,6 @@ there, not in route handlers or components.
 
 Copy `.env.example` → `.env.local` and fill in. Required: `DATABASE_URL`,
 `PAYSTACK_SECRET_KEY`, `PAYSTACK_PUBLIC_KEY`, SMTP creds, `ADMIN_PASSWORD`,
-`ADMIN_SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`, `ADMIN_EMAIL`. `DATABASE_URL` is populated by
-the Neon integration (`vercel env pull`).
+`ADMIN_SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`, `ADMIN_EMAIL`. `DATABASE_URL` points at the
+Prisma Postgres database (provisioned via `npx create-db` / the Prisma console). The Prisma
+CLI reads `.env`, so keep `DATABASE_URL` identical in both `.env` and `.env.local`.

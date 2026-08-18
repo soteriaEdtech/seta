@@ -1,0 +1,60 @@
+// Prisma schema for the SETA applicant-management system.
+// Docs: https://pris.ly/d/prisma-schema
+//
+// Field names are intentionally snake_case to match the column names and the
+// shapes consumed across the app (routes + admin dashboard), so switching to
+// Prisma required no changes outside the data layer.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Application {
+  id                String    @id @default(uuid()) @db.Uuid
+  reference         String    @unique
+  full_name         String
+  email             String
+  phone             String
+  location          String?
+  track             String
+  experience_level  String?
+  background        String?
+  motivation        String?
+  portfolio_url     String?
+  referral_source   String?
+  amount            Int
+  payment_status    String    @default("pending")
+  payment_reference String?
+  paid_at           DateTime? @db.Timestamptz(6)
+  admission_status  String    @default("pending")
+  admin_notes       String?
+  created_at        DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime  @updatedAt @db.Timestamptz(6)
+
+  payments Payment[]
+
+  @@index([email])
+  @@index([created_at])
+  @@map("applications")
+}
+
+model Payment {
+  id             String    @id @default(uuid()) @db.Uuid
+  application_id String?   @db.Uuid
+  application    Application? @relation(fields: [application_id], references: [id], onDelete: Cascade)
+  reference      String
+  amount         Int
+  status         String
+  channel        String?
+  paid_at        DateTime? @db.Timestamptz(6)
+  raw            Json?
+  created_at     DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@index([reference])
+  @@map("payments")
+}
