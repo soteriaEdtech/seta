@@ -34,6 +34,7 @@ npm run lint         # eslint
 npm run db:migrate   # create/apply a migration in dev (prisma migrate dev)
 npm run db:deploy    # apply migrations in prod/CI (prisma migrate deploy)
 npm run db:generate  # regenerate the Prisma client
+npm run db:seed      # seed/reset the admin login from ADMIN_EMAIL/ADMIN_PASSWORD
 npm run db:studio    # open Prisma Studio
 ```
 
@@ -91,8 +92,11 @@ data access there, not in route handlers or components. To change the schema, ed
   application or payment flow.
 - Payment truth comes from **Paystack verify/webhook**, never from the client. The client
   only redirects to the Paystack `authorization_url`.
-- Admin auth is a **single shared password** (`ADMIN_PASSWORD`) → stateless signed cookie
-  (`lib/auth.ts`). Not multi-user; upgrade to a real auth provider if that changes.
+- Admin auth: logins live in the **`admins` table** (email + scrypt-hashed password,
+  data access in `lib/admins.ts`). A successful login sets a stateless signed cookie
+  (`lib/auth.ts`, signed with `ADMIN_SESSION_SECRET`). Seed/reset the first admin from
+  `ADMIN_EMAIL`/`ADMIN_PASSWORD` with `npm run db:seed`. The session cookie is a single
+  shared token, not per-admin — fine for the "is an admin logged in" gate.
 - New landing content = a `components/*-section.tsx` added to `app/page.tsx`.
 
 ## Environment

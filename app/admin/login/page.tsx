@@ -9,6 +9,7 @@ import { Lock, Loader2 } from "lucide-react"
 
 export default function AdminLoginPage() {
   const router = useRouter()
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -21,7 +22,7 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -51,14 +52,27 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4 rounded-xl bg-card border border-border p-6">
           <div>
-            <Label htmlFor="password">Admin password</Label>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoFocus
+              autoComplete="username"
+              className="mt-1.5"
+            />
+          </div>
+          <div>
+            <Label htmlFor="password">Password</Label>
             <Input
               id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              autoFocus
+              autoComplete="current-password"
               className="mt-1.5"
             />
           </div>

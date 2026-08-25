@@ -80,7 +80,7 @@ export function HeroSection() {
             <span className="text-sm text-muted-foreground">
               Applications Close:{" "}
               <span className="text-foreground font-medium">
-                August 19, 2026
+                August 27, 2026
               </span>
             </span>
             <span className="text-border">|</span>
